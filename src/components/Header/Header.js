@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { QUERIES, WEIGHTS } from '../../constants';
+import { QUERIES } from '../../constants';
 import Logo from '../Logo';
 import Icon from '../Icon';
 import UnstyledButton from '../UnstyledButton';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import VisuallyHidden from '../VisuallyHidden';
+import NavLink from '../NavLink';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -20,12 +21,12 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <DesktopNav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">Sale<br /><strong>Sale</strong></NavLink>
+          <NavLink href="/new">New&nbsp;Releases<br /><strong>New&nbsp;Releases</strong></NavLink>
+          <NavLink href="/men">Men<br /><strong>Men</strong></NavLink>
+          <NavLink href="/women">Women<br /><strong>Women</strong></NavLink>
+          <NavLink href="/kids">Kids<br /><strong>Kids</strong></NavLink>
+          <NavLink href="/collections">Collections<br /><strong>Collections</strong></NavLink>
         </DesktopNav>
         <MobileActions>
           <ShoppingBagButton>
@@ -75,6 +76,8 @@ const DesktopNav = styled.nav`
   display: flex;
   gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
   margin: 0px 48px;
+  overflow: hidden;
+  height: 30px;
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
@@ -111,18 +114,6 @@ const Filler = styled.div`
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
-  }
-`;
-
-const NavLink = styled.a`
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-gray-900);
-  font-weight: ${WEIGHTS.medium};
-
-  &:first-of-type {
-    color: var(--color-secondary);
   }
 `;
 
